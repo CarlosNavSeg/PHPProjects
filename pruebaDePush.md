@@ -1,1 +1,0 @@
-Este fichero solo es una prueba para comprobar que las funcionalidades de Git están disponibles.
