@@ -1,5 +1,4 @@
 <?php
 $a = getallheaders();
-cont
-header('Content-Type: mensaje de aviso')
+header('Content-Type: mensaje de aviso');
 ?>
