@@ -1,8 +1,7 @@
 <?php
 session_start();
-$username = $_SESSION['username'];
-$email = $_SESSION['email'];
-$contraseña = $_SESSION['contraseña'];
+$contraseña = trim($_POST['contraseña']);
+$email = trim($_POST['email']);
 $opciones = array(
     PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
@@ -13,7 +12,12 @@ $pdo = new PDO(
     'root',
     'sa',
 $opciones);
-$query = "SELECT * FROM contactos WHERE username = $username, contraseña = $contraseña, email = $email";
-$resultado = $pdo->exec($query);
-header("Location:privada.php");
+$query = "SELECT * FROM contactos WHERE password = '$contraseña' and email = '$email'";
+$resultado = $pdo->prepare($query);
+$resultado->execute();
+$gsent = $resultado->fetch(PDO::FETCH_ASSOC);
+if($gsent == null) {
+    echo('No hemos encontrado el usuario en nuestra base de datos');
+}
+print_r($gsent);
 ?>
