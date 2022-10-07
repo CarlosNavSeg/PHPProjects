@@ -1,0 +1,15 @@
+controllers:
+    resource: ../src/Controller/
+    type: attribute
+
+page:
+    resource: ../src/Controller/PageController.php
+    type: attribute
+
+respuesta: 
+    path: /
+    controller: ../src/Controller/InicioController::inicio
+
+contacto:
+    path: /contacto/{codigo}
+    controller: ../src/Controller/ContactoController::ficha
