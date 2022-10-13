@@ -6,11 +6,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class InicioController extends AbstractController
+class IniContollerController extends AbstractController
 {
-    #[Route('/', name: 'app_inicio')]
+    #[Route('/', name: 'inicio')]
     public function inicio(): Response
     {
-        return $this->render('inicio.html.twig');
+        return new Response('Bienvenido a la pagina de contactos') ;
     }
+        
 }

@@ -2,14 +2,10 @@ controllers:
     resource: ../src/Controller/
     type: attribute
 
-page:
-    resource: ../src/Controller/PageController.php
-    type: attribute
-
-respuesta: 
-    path: /
-    controller: ../src/Controller/InicioController::inicio
-
-contacto:
+contactoFicha:
     path: /contacto/{codigo}
     controller: ../src/Controller/ContactoController::ficha
+
+contactoBuscar:
+    path: /contacto/buscar/{texto}
+    controller: ../src/Controller/ContactoController::buscar

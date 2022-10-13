@@ -4,26 +4,26 @@ controllers:
 
 index: 
     path: /
-    defaults: { _controller: 'App\Controller\DefaultController::index' }
+    defaults: { _controller: 'App/Controller/DefaultController::index' }
 
 lucky_number:
     path: /lucky/number
-    controller: App\Controller\LuckyController::numberAction
+    controller: App/Controller/LuckyController::numberAction
 
 blog_list:
     path: /blog
-    controller: App\Controller\BlogController::list
+    controller: App/Controller/BlogController::list
 
 blog_show:
     path: /blog/{entryId}
-    controller: App\Controller\BlogController::show
+    controller: App/Controller/BlogController::show
 
 blog_list_twig:
     path:     /blogtwig
-    controller: App\Controller\BlogTwigController::list
+    controller: App/Controller/BlogTwigController::list
 
 blog_show_twig:
     path:     /blogtwig/{entryId}
-    controller: App\Controller\BlogTwigController::show
+    controller: App/Controller/BlogTwigController::show
 
 
