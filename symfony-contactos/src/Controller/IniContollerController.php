@@ -11,7 +11,7 @@ class IniContollerController extends AbstractController
     #[Route('/', name: 'inicio')]
     public function inicio(): Response
     {
-        return new Response('Bienvenido a la pagina de contactos') ;
+        return $this->render('inicio.html.twig') ;
     }
         
 }
