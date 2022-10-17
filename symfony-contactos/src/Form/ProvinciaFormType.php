@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Provincia;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,6 +14,7 @@ class ProvinciaFormType extends AbstractType
     {
         $builder
             ->add('nombre')
+            ->add('save', SubmitType::class, array('label' => 'Enviar'));
         ;
     }
 
