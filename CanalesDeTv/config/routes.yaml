@@ -1,3 +1,11 @@
 controllers:
     resource: ../src/Controller/
     type: attribute
+
+mostrarCanal:
+    path: /canal/{codigo}
+    controller: ../src/Controller/CanalController::mostrar
+
+buscarCanal:
+    path: /canal/buscar/{texto}
+    controller: ../src/Controller/CanalController::buscar

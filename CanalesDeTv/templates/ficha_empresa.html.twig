@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+    {% block title %}Empresa{% endblock %}
+    {% block body %}
+    <h1> Ficha de la empresa </h1>
+    {% if empresa %}
+    <ul>
+       {{ include('partials/datos_empresa.html.twig', {'empresa': empresa}) }}
+    </ul>
+    {% else %}
+    <p> Empresa no encontrada </p>
+    {% endif %}
+{% endblock %}

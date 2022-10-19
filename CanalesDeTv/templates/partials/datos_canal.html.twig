@@ -1,0 +1,9 @@
+<ul>
+    <li><strong>Nombre</strong>: {{ canal.nombre }}</li>
+    <li><strong>Numero canal</strong>: {{ canal.numerocanal }}</li>
+    {% if canal.canalporcable == 0 %}
+    <li><strong>Canal por cable? </strong>: No </li>
+    {% else %}
+    <li><strong>Canal por cable? </strong>: Si </li>
+    {% endif %}
+</ul>

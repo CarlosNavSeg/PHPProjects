@@ -2,10 +2,10 @@
     {% block title %}Contactos{% endblock %}
     {% block body %}
 <h1>Lista de contactos</h1>
-    {% if resultados %}
-    {% for resultado in resultados %}
+    {% if contactos %}
+    {% for contacto in contactos %}
     <ul>
-       {{ include('./partials/datos_contactos.html.twig', {'contacto': resultado}) }}
+       {{ include('./partials/datos_contactos.html.twig', {'contacto': contacto}) }}
     </ul>
     {% endfor %}
 

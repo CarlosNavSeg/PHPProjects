@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+    {% block title %}Canal{% endblock %}
+    {% block body %}
+    <h1> Ficha del canal </h1>
+    {% if canal %}
+    <ul>
+       {{ include('partials/datos_canal.html.twig', {'canal': canal}) }}
+    </ul>
+    {% else %}
+    <p> Canal no encontrado </p>
+    {% endif %}
+{% endblock %}
