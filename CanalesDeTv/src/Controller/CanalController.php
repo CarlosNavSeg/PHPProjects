@@ -58,10 +58,35 @@ class CanalController extends AbstractController
             $entityManager = $doctrine->getManager();
             $entityManager->persist($canal);
             $entityManager->flush();
-            return $this->redirectToRoute('ficha_canal', ["codigo" => $canal->getId()]);
+            return $this->redirectToRoute('mostrar', ["codigo" => $canal->getId()]);
         }
         return $this->render('nueva.html.twig', array(
             'formulario' => $formulario->createView()
         ));
     }
+
+    #[Route('/canal/editar/{codigo<\d+>?1}', name: 'editar_canal')]
+    public function editar(ManagerRegistry $doctrine, Request $request, $codigo) {
+        $repositorio = $doctrine->getRepository(Canal::class);
+        $canal = $repositorio->find($codigo);
+        if ($canal){
+            $formulario = $this->createForm(CanalFormType::class, $canal);
+            $formulario->handleRequest($request);
+            if ($formulario->isSubmitted() && $formulario->isValid()) {
+                $canal = $formulario->getData();
+                $entityManager = $doctrine->getManager();
+                $entityManager->persist($canal);
+                $entityManager->flush();
+                return $this->redirectToRoute('mostrar', ["codigo" => $canal->getId()]);
+            } 
+            return $this->render('nuevo.html.twig', array(
+                'formulario' => $formulario->createView()
+            ));
+        }else{
+            return $this->render('ficha_canal.html.twig', [
+                'canal' => NULL
+            ]);
+    
+        }
+}
 }

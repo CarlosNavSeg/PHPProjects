@@ -6,6 +6,7 @@ use App\Entity\Canal;
 use App\Entity\Empresa;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -19,7 +20,11 @@ class CanalFormType extends AbstractType
         $builder
             ->add('nombre', TextType::class)
             ->add('numerocanal', IntegerType::class)
-            ->add('canalporcable', IntegerType::class)
+            ->add('canalporcable', ChoiceType::class, array(
+            'choices' => [
+                'Sí' => 1,
+                'No' => 0,
+            ]))
             ->add('id_empresa', EntityType::class, array (
                 'class' => Empresa::class,
                 'choice_label' => 'nombre',
