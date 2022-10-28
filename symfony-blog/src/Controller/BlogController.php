@@ -24,7 +24,7 @@ class BlogController extends AbstractController
 
     #[Route('/thankyou', name:'thankyou')]
     public function thanks(): Response {
-        return $this->render('thankyou.html.twig');
+        return $this->render('thankyou/thankyou.html.twig');
     }
     
     #[Route("/contact", name: "contact")]
@@ -40,10 +40,10 @@ class BlogController extends AbstractController
             $entityManager->flush();
             return $this->redirectToRoute('thankyou', []);
         }
-        return $this->render('page/contact.html.twig', array(
+        return $this->render('contact/contact.html.twig', array(
             'form' => $form->createView()    
         ));
-}
+    }
 
 
 }
