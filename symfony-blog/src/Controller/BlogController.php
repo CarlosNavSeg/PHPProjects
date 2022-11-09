@@ -18,7 +18,7 @@ class BlogController extends AbstractController
 {
     
     #[Route('/blog', name: 'blog')]
-    public function findAllPaginated(ManagerRegistry $doctrine, int $page = 1): Response
+    public function index(ManagerRegistry $doctrine, int $page = 1): Response
     {
         $repository = $doctrine->getRepository(Post::class);
         $posts = $repository->findAllPaginated($page);
@@ -27,6 +27,17 @@ class BlogController extends AbstractController
         ]);
     }
 
+    #[Route('/single_post/{slug}', 'recent_post')]
+    public function post(ManagerRegistry $doctrine, $slug): Response
+    {
+    $repository = $doctrine->getRepository(Post::class);
+    $post = $repository->findOneBy(["slug"=>$slug]);
+    $recents = $repository->findRecents();
+    return $this->render('blog/single_post.html.twig', [
+        'post' => $post,
+        'recents' => $recents
+    ]);
+    }
 
     #[Route('/blog/post/{slug}', name: 'blogpost')]
     public function blogpost(ManagerRegistry $doctrine, $slug): Response {

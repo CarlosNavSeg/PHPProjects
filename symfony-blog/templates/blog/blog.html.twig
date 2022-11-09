@@ -49,9 +49,10 @@
       <div class="row">
 
       <!-- Blocks of Posts -->
-        {% for post in posts %}
-          {{ include ('partials/post.html.twig', {'post': post}) }}
+        {% for recent in recents %}
+          {{ include ('partials/recent_post.html.twig', {'recent': recent}) }}
         {% endfor %}
+
       <!-- End of Blog Post -->  
 
       <!-- Side bar -->  
